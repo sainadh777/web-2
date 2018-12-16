@@ -1,0 +1,10 @@
+use jadrn052;
+
+drop table if exists merchandise_in;
+drop table if exists merchandise_out;
+drop table if exists on_hand;
+
+
+create table merchandise_in(sku varchar(7), mydate date, quantity int, foreign key(sku) references product(sku));
+create table merchandise_out(sku varchar(7), mydate date, quantity int, foreign key(sku) references product(sku));
+create table on_hand(sku varchar(7), last_date_modified date, on_hand_quantity int, foreign key(sku) references product(sku));
